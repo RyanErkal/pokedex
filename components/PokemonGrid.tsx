@@ -20,8 +20,6 @@ export default function PokemonGrid({ list }: { list: any }) {
 				pokemon.name.includes(search.toLowerCase())
 			)
 		);
-		console.log(search);
-		console.log("filteredList", filteredPokemonList);
 	}, [search]);
 
 	useEffect(() => {
