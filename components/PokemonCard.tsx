@@ -19,20 +19,22 @@ export default function PokemonCard({ pokemon }: { pokemon: any }) {
 
 	return (
 		<>
-			{data && (
+			{data ? (
 				<Link
-					href={`/${data.id}`}
+					href={`/${data?.id}`}
 					className="flex flex-col items-center justify-center bg-gray-100 px-4 py-2 border border-gray-300 hover:border-green-300 hover:bg-green-100 transition-all ease-in-out duration-200 rounded-lg">
 					<Image
-						src={data.sprites.front_default}
+						src={data?.sprites.front_default}
 						alt={pokemon.name}
 						width={128}
 						height={128}
 					/>
 					<h2 className="capitalize font-bold text-xl">
-						{data.name}
+						{data?.name}
 					</h2>
 				</Link>
+			) : (
+				<Skeleton width="100%" height="128px" className="rounded-lg" />
 			)}
 		</>
 	);

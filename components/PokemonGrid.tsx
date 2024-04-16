@@ -1,8 +1,7 @@
 "use client";
 
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import PokemonCard from "@/components/PokemonCard";
-import { getPokemonList } from "@/utils/api";
 import { useInView } from "react-intersection-observer";
 import { Spinner } from "@radix-ui/themes";
 
@@ -28,9 +27,9 @@ export default function PokemonGrid({ list }: { list: any }) {
 		}
 	}, [inView]);
 
-	const loadMore = async () => {
-		setLoad(load + INITIAL_LOAD);
-	};
+	function loadMore() {
+		setLoad((prev) => prev + INITIAL_LOAD);
+	}
 
 	return (
 		<>
