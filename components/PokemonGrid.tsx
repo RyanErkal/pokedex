@@ -14,11 +14,14 @@ export default function PokemonGrid({ list }: { list: any }) {
 	const { ref, inView } = useInView();
 
 	useEffect(() => {
+		setLoad(INITIAL_LOAD);
 		setFilteredPokemonList(
 			list.filter((pokemon: any) =>
 				pokemon.name.includes(search.toLowerCase())
 			)
 		);
+		console.log(search);
+		console.log("filteredList", filteredPokemonList);
 	}, [search]);
 
 	useEffect(() => {
@@ -39,11 +42,14 @@ export default function PokemonGrid({ list }: { list: any }) {
 				className="py-2 px-4 rounded-lg border border-gray-300 my-6 focus:outline-none focus:ring-2 focus:ring-green-300 focus:border-transparent"
 				onChange={(e) => setSearch(e.target.value)}
 			/>
-			<section className="w-full grid grid-cols-1 md:grid-cols-3 gap-4">
+			<section className="w-full grid grid-cols-1 sm:grid-cols-3 gap-4 px-4">
 				{filteredPokemonList.slice(0, load).map((pokemon: any) => (
 					<PokemonCard key={pokemon.name} pokemon={pokemon} />
 				))}
 			</section>
+			{filteredPokemonList.length === 0 && (
+				<p className="text-center my-6">No Pokémon found</p>
+			)}
 			{load < filteredPokemonList.length && (
 				<div ref={ref} className="my-6">
 					<Spinner />
