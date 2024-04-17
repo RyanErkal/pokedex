@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { getPokemonDetail } from "@/utils/api";
 import { Skeleton } from "@radix-ui/themes";
+import pokemonLogo from "@/public/pokemon-logo.webp";
 
 export default function PokemonCard({ pokemon }: { pokemon: any }) {
 	const [data, setData] = useState<any>(null);
@@ -24,7 +25,7 @@ export default function PokemonCard({ pokemon }: { pokemon: any }) {
 					href={`/${data?.id}`}
 					className="flex flex-col items-center justify-center bg-gray-100 px-4 py-2 border border-gray-300 hover:border-green-300 hover:bg-green-100 transition-all ease-in-out duration-200 rounded-lg">
 					<Image
-						src={data?.sprites.front_default}
+						src={data?.sprites.front_default || pokemonLogo}
 						alt={pokemon.name}
 						width={128}
 						height={128}
@@ -34,7 +35,7 @@ export default function PokemonCard({ pokemon }: { pokemon: any }) {
 					</h2>
 				</Link>
 			) : (
-				<Skeleton width="100%" height="128px" className="rounded-lg" />
+				<Skeleton width="100%" height="175px" className="rounded-lg" />
 			)}
 		</>
 	);

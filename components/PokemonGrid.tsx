@@ -3,12 +3,15 @@
 import { useEffect, useState } from "react";
 import PokemonCard from "@/components/PokemonCard";
 import { useInView } from "react-intersection-observer";
+import debounce from "lodash.debounce";
 import { Spinner } from "@radix-ui/themes";
 
 const INITIAL_LOAD = 30;
 
 export default function PokemonGrid({ list }: { list: any }) {
-	const [filteredPokemonList, setFilteredPokemonList] = useState<any>(list);
+	const [filteredPokemonList, setFilteredPokemonList] = useState<any>(
+		list.slice(0, INITIAL_LOAD)
+	);
 	const [load, setLoad] = useState(INITIAL_LOAD);
 	const [search, setSearch] = useState("");
 	const { ref, inView } = useInView();
@@ -29,8 +32,12 @@ export default function PokemonGrid({ list }: { list: any }) {
 	}, [inView]);
 
 	function loadMore() {
-		setLoad((prev) => prev + INITIAL_LOAD);
+		setLoad((prev) => Math.min(prev + INITIAL_LOAD, list.length));
 	}
+
+	const handleSearch = debounce((value) => {
+		setSearch(value);
+	}, 300);
 
 	return (
 		<>
@@ -38,7 +45,7 @@ export default function PokemonGrid({ list }: { list: any }) {
 				type="text"
 				placeholder="Search"
 				className="py-2 px-4 rounded-lg border border-gray-300 my-6 focus:outline-none focus:ring-2 focus:ring-green-300 focus:border-transparent"
-				onChange={(e) => setSearch(e.target.value)}
+				onChange={(e) => handleSearch(e.target.value)}
 			/>
 			<section className="w-full grid grid-cols-1 sm:grid-cols-3 gap-4 px-4">
 				{filteredPokemonList.slice(0, load).map((pokemon: any) => (
