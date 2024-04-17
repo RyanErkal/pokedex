@@ -1,7 +1,7 @@
 import Image from "next/image";
 import PokemonGrid from "@/components/PokemonGrid";
 import { getPokemonList } from "@/utils/api";
-import pokemonLogo from "@/public/pokemon-logo.webp";
+import pokemonLogo from "@/public/pokemonlogo.webp";
 
 export default async function Page() {
 	const res = await getPokemonList(0, 1302);

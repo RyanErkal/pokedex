@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { getPokemonDetail } from "@/utils/api";
-import pokemonLogo from "@/public/pokemon-logo.webp";
+import pokemonLogo from "@/public/pokemonlogo.webp";
 import PokemonTypeLabel from "@/components/PokemonTypeLabel";
 import PokemonStats from "@/components/PokemonStats";
 import PokemonAbilities from "@/components/PokemonAbilities";

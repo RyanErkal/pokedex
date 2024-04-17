@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { getPokemonDetail } from "@/utils/api";
 import { Skeleton } from "@radix-ui/themes";
-import pokemonLogo from "@/public/pokemon-logo.webp";
+import pokemonLogo from "@/public/pokemonlogo.webp";
 
 export default function PokemonCard({ pokemon }: { pokemon: any }) {
 	const [data, setData] = useState<any>(null);
