@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Pokémon App
 
-## Getting Started
+## Description
 
-First, run the development server:
+Pokémon App is a web application built with Next.js that enhances user experience by enabling users to browse, search, and view detailed information about Pokémon. It uses lazy loading and infinite scroll to efficiently manage data loading, making the app more performant on devices of all types. The data is sourced from PokeAPI.
 
-```bash
+## Features
+
+- **Lazy Loading**: Pokémon data is loaded as the user scrolls, reducing initial load time and data usage.
+- **Infinite Scroll**: Users can scroll through an "endless" list of Pokémon, which loads more items automatically as they reach the bottom of the list.
+- **Detailed Pokémon Information**: Click on any Pokémon to see detailed stats, abilities, and other information.
+- **Search Functionality**: Users can search for Pokémon by name, dynamically filtering the list.
+
+## Technologies Used
+
+- **Next.js**: A React framework for server-rendered applications.
+- **TailwindCSS**: A utility-first CSS framework for rapid UI development.
+- **Radix-UI**: Unstyled, accessible components for building high-quality design systems and web apps.
+
+## Installation
+
+Follow these steps to get the project up and running locally:
+
+### Prerequisites
+
+- Node.js (v12.x or later)
+- npm or Yarn
+
+### Clone the Repository
+
+```
+git clone https://github.com/yourusername/pokemon-app.git
+cd pokemon-app
+```
+
+### Install Dependencies
+```
+npm install
+# or
+yarn install
+```
+
+### Run the Application
+```
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Navigate to http://localhost:3000 in your web browser to see the application in action.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Usage
+Browsing Pokémon
+Access the main page which displays a continuously loading list of Pokémon as you scroll down.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Searching for Pokémon
+Type a Pokémon name in the search bar to filter the list based on your query. The list updates dynamically as you type.
 
-## Learn More
+### Viewing Pokémon Details
+Click on any Pokémon in the list to view its detailed profile, including abilities, stats, and more.
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+#### API Reference
+This application utilizes the PokeAPI for all data. For detailed information on the data provided, visit [PokeAPI](https://pokeapi.co/)
