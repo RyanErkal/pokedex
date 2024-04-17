@@ -2,7 +2,7 @@
 
 ## Description
 
-Pokémon App is a web application built with Next.js that enhances user experience by enabling users to browse, search, and view detailed information about Pokémon. It uses lazy loading and infinite scroll to efficiently manage data loading, making the app more performant on devices of all types. The data is sourced from PokeAPI.
+Pokémon App is a web application built with Next.js that enhances user experience by enabling users to browse, search, and view detailed information about Pokémon. It uses lazy loading and infinite scroll to efficiently manage data loading, making the app more performant on devices of all types. The data is sourced from [PokeAPI](https://pokeapi.co/).
 
 ## Features
 
